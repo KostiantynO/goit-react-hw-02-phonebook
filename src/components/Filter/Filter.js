@@ -1,20 +1,20 @@
-import { PropTypes, Container, Button } from 'common';
+import { PropTypes, Container, Label } from 'common';
+import { ClearFilterButton } from 'common/components/Button';
 
-export const Filter = ({ filter, onChange, onClearFilter }) => (
+export const Filter = ({ value, onChange, onClearFilter }) => (
   <Container>
-    <label>
-      Find contact by name
-      <input type="text" name="filter" value={filter} onChange={onChange} />
-    </label>
+    <Label label="Find contact by name">
+      <input type="text" name="filter" value={value} onChange={onChange} />
+    </Label>
 
-    <Button display="if" onClick={onClearFilter}>
+    <ClearFilterButton display="if" onClick={onClearFilter}>
       Clear filter
-    </Button>
+    </ClearFilterButton>
   </Container>
 );
 
 Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onClearFilter: PropTypes.func.isRequired,
 };

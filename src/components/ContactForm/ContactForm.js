@@ -2,7 +2,7 @@ import { Component, PropTypes, Container, Button, Label } from 'common';
 
 const INITIAL_STATE = Object.freeze({ name: '', number: '' });
 
-export default class ContactForm extends Component {
+export class ContactForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
   };

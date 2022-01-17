@@ -1,8 +1,5 @@
 import { Component, nanoid, Section } from 'common';
-
-import ContactForm from 'components/ContactForm';
-import { Filter } from 'components/Filter';
-import { ContactList } from 'components/ContactList';
+import { ContactForm, ContactList, Filter } from 'components';
 
 import { AppStyled } from './App.styled';
 
@@ -32,20 +29,20 @@ export default class App extends Component {
 
   isSaved = newName => {
     const { contacts } = this.state;
+    const normalizedNewName = newName.toLowerCase();
 
     const contact = contacts.find(
-      ({ name }) => name.toLowerCase() === newName.toLowerCase(),
+      ({ name }) => name.toLowerCase() === normalizedNewName,
     );
 
     if (contact) {
       alert(`${contact.name} is already in the contacts`);
-    } else {
       return true;
     }
   };
 
   addContact = ({ name, number }) => {
-    if (!this.isSaved(name)) return;
+    if (this.isSaved(name)) return;
 
     const contact = { id: nanoid(), name, number };
     this.setState(prevState => ({
@@ -72,7 +69,7 @@ export default class App extends Component {
 
         <Section title="Contacts">
           <Filter
-            filter={filter}
+            value={filter}
             onChange={this.changeFilter}
             onClearFilter={this.clearFilter}
           />

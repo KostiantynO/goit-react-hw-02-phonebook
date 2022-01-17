@@ -3,7 +3,7 @@ import { SectionStyled } from './Section.styled';
 import { SectionTitle } from './SectionTitle';
 
 export const Section = ({ title, h, children, ...props }) => (
-  <SectionStyled {...props}>
+  <SectionStyled h={h} {...props}>
     <Container>
       <SectionTitle title={title} h={h} />
     </Container>

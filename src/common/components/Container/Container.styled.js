@@ -5,10 +5,11 @@ export const ContainerStyled = styled.div`
 
   display: flex;
   flex-wrap: nowrap;
-
-  margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing(0, 4)};
+  gap: clamp(20px, 2.1vw, 32px);
   max-width: ${({ theme }) => theme.spacing(100)};
+
+  padding: ${({ theme }) => theme.spacing(0, 4)};
+  margin: 0 auto;
 
   @media screen and (min-width: 480px) {
     max-width: 480px;

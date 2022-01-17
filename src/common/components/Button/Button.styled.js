@@ -8,7 +8,8 @@ export const ButtonStyled = styled.button.attrs(({ type, display }) => ({
   align-items: center;
   justify-content: center;
 
-  padding: clamp(12px, 2.1vw, 16px) clamp(12px, 2.1vw, 20px);
+  white-space: nowrap;
+  padding: clamp(4px, 2.1vw, 8px) clamp(12px, 2.1vw, 20px);
 
   font-family: inherit;
   font-size: clamp(1.1rem, 2.1vw, 1.5rem);
@@ -33,3 +34,7 @@ ButtonStyled.propTypes = {
   type: PropTypes.string,
   display: PropTypes.string,
 };
+
+export const ClearFilterButtonStyled = styled(ButtonStyled)`
+  align-self: flex-end;
+`;
