@@ -4,7 +4,8 @@ export const Input = ({ type, name, ...props }) => {
   const getPattern = (inputType, inputName) => {
     switch (inputType) {
       case 'tel':
-        return '+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}';
+        //prettier-ignore
+        return "\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}";
 
       case 'text':
         return inputName !== 'filter'
