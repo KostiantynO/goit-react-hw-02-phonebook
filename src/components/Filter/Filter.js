@@ -1,16 +1,18 @@
-import { PropTypes, Container, Label } from 'common';
+import { PropTypes, Container, Label, Input } from 'common';
 import { ClearFilterButton } from 'common/components/Button';
 
 export const Filter = ({ value, onChange, onClearFilter }) => (
-  <Container>
-    <Label label="Find contact by name">
-      <input type="text" name="filter" value={value} onChange={onChange} />
-    </Label>
-
-    <ClearFilterButton display="if" onClick={onClearFilter}>
-      Clear filter
-    </ClearFilterButton>
-  </Container>
+  <div>
+    <Label label="Find contact by name" htmlFor="filter" />
+    <Container>
+      <div style={{ display: 'flex', gap: 12 }}>
+        <Input type="text" name="filter" value={value} onChange={onChange} />
+        <ClearFilterButton display="if" onClick={onClearFilter}>
+          Clear filter
+        </ClearFilterButton>
+      </div>
+    </Container>
+  </div>
 );
 
 Filter.propTypes = {

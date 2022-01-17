@@ -6,6 +6,6 @@ export { default as PropTypes } from 'prop-types';
 export { theme } from './theme';
 
 // common components
-export { Section, Container, Button, Label } from 'common/components';
+export { Section, Container, Button, Label, Input } from 'common/components';
 
 // import { React, Component, ReactDOM, nanoid, styled, ThemeProvider, PropTypes, theme, Container, Section } from 'common'
