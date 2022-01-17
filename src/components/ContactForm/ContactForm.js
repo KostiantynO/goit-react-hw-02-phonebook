@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
+import { Component, PropTypes, Container, Button, Label } from 'common';
 
-const INITIAL_STATE = { name: '', number: '' };
+const INITIAL_STATE = Object.freeze({ name: '', number: '' });
 
 export default class ContactForm extends Component {
   static propTypes = {
@@ -15,12 +13,12 @@ export default class ContactForm extends Component {
     e.preventDefault();
     const form = e.currentTarget;
 
-    const data = {
+    const newData = {
       name: form.elements.name.value.trim(),
       number: form.elements.number.value.trim(),
     };
 
-    this.setState(data, () => this.props.onSubmit(this.state));
+    this.setState(newData, () => this.props.onSubmit(this.state));
     form.reset();
   };
 
@@ -28,10 +26,9 @@ export default class ContactForm extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <form onSubmit={this.addContact}>
-          <label>
-            Name
+          <Label label="Name">
             <input
               type="text"
               name="name"
@@ -39,10 +36,9 @@ export default class ContactForm extends Component {
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
             />
-          </label>
+          </Label>
 
-          <label>
-            Number
+          <Label label="Number">
             <input
               type="tel"
               name="number"
@@ -50,11 +46,11 @@ export default class ContactForm extends Component {
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-          </label>
+          </Label>
 
-          <button type="submit">Add contact</button>
+          <Button type="submit">Add contact</Button>
         </form>
-      </div>
+      </Container>
     );
   }
 }
